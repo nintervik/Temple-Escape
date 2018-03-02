@@ -2,3 +2,12 @@ version: 1.0.{build}
 image: Visual Studio 2017
 build:
   verbosity: minimal
+  
+  after_build:
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\Temple-Escape\Game\Release\Temple-Escape.exe"
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\Temple-Escape\Game\audio"
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\Temple-Escape\Game\fonts"
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\Temple-Escape\Game\maps"
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\Temple-Escape\Game\textures"
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\Temple-Escape\Game\*.dll"
+- 7z a Temple-Escape.zip "%APPVEYOR_BUILD_FOLDER%\README.md"
